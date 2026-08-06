@@ -2,11 +2,21 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "MCP Server (uvicorn, reload)",
+      "name": "Azure SQL MCP Server (uvicorn, reload)",
       "type": "debugpy",
       "request": "launch",
       "module": "uvicorn",
       "args": ["app.main:app", "--reload", "--host", "0.0.0.0", "--port", "8000"],
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal",
+      "justMyCode": true
+    },
+    {
+      "name": "DuckDB CSV MCP Server (uvicorn, reload)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "uvicorn",
+      "args": ["duckdb_csv_server.main:app", "--reload", "--host", "0.0.0.0", "--port", "8001"],
       "envFile": "${workspaceFolder}/.env",
       "console": "integratedTerminal",
       "justMyCode": true
